@@ -1,6 +1,6 @@
 ﻿namespace FastGTFSImport;
 
-public class GTFSParser_UpdateTable
+public partial class GTFSParser
 {
     
 }

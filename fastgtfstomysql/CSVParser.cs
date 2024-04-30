@@ -7,6 +7,7 @@ public class CSVParser
     // as they're each writing to their own section
     private string[][] _parsedData;
     private string[] CSVFile;
+    // TODO: I don't think I need to have a tuple here anymore, I can just emit a jagged array
     public Tuple<string[], string[][]> ParseFile(string[] fileToParse, int numberOfThreads)
     {
         CSVFile = fileToParse;

@@ -67,6 +67,14 @@ public partial class GTFSParser
         }
     }
 
+    public void UpdateTables()
+    {
+        foreach (Table table in _tablesToCreate)
+        {
+            UpdateTable(table);
+        }
+    }
+
     private bool CheckFileExists(string GTFSFile)
     {
         return File.Exists(Path.Join(_rootPath, GTFSFile));
