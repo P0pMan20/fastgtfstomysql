@@ -1,0 +1,23 @@
+route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_color,route_text_color
+110N-3457,110N,"City - Palm Cove",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/110N,E463A4,000000
+120N-3457,120N,"City - Smithfield via Machans Beach and Holloways",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/120N,E463A4,000000
+131N-3457,131N,"City - Raintrees via Whitfield",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/131N,E463A4,000000
+140N-3457,140N,"City - Edmonton via Bentley Park",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/140N,E463A4,000000
+143W-3457,143W,"City - Mt Sheridan via White Rock",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/143W,E463A4,000000
+150E-3457,150E,"City - Gordonvale",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/150E,E463A4,000000
+C110-3457,110,"City - Palm Cove",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/110,E463A4,000000
+C111-3457,111,"City - Kewarra Beach",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/111,E463A4,000000
+C112-3457,112,"Yorkeys Knob - Smithfield via JCU",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/112,E463A4,000000
+C113-3457,113,"Sunbus Depot - Cairns City",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/113,E463A4,000000
+C120-3457,120,"City - Machans Beach - Smithfield",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/120,E463A4,000000
+C121-3457,121,"City - Redlynch",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/121,E463A4,000000
+C122-3457,122,"JCU - Redlynch",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/122,E463A4,000000
+C123-3457,123,"City - JCU via Raintrees",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/123,E463A4,000000
+C130-3457,130,"City - Raintrees via Edge Hill",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/130,E463A4,000000
+C131-3457,131,"City - Raintrees via Whitfield",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/131,E463A4,000000
+C133-3457,133,"City - Earlville via Mooroobool",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/133,E463A4,000000
+C140-3457,140,"City - Edmonton via Bentley Park",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/140,E463A4,000000
+C141-3457,141,"City - Woree via Bayview Heights",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/141,E463A4,000000
+C142-3457,142,"City - Edmonton via Mt Sheridan/Timberlea",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/142,E463A4,000000
+C143-3457,143,"City - Mt Sheridan via White Rock",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/143,E463A4,000000
+C150-3457,150,"City - Gordonvale",,3,https://jp.translink.com.au/plan-your-journey/timetables/bus/C/150,E463A4,000000
