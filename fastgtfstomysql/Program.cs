@@ -8,6 +8,7 @@ class Program
     // Scan for files -> Create table headings -> Create tables if desired -> parse whole file -> insert (threaded)
     static void Main(string[] args)
     {
+        
         Thread.CurrentThread.Name = "Main";
         string rootPath = "C:\\Users\\User\\Documents\\Development\\C#\\fastgtfstomysql\\CNS_GTFS";
         IDatabaseFactory db = new MySqlConnectionWrapperFactory("Server=localhost;User ID=test;Password=pass;Database=test;Port=3306;Protocol=Socket");
