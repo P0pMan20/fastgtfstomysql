@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text;
 
 namespace FastGTFSImport;
 
@@ -8,14 +9,17 @@ class Program
     static void Main(string[] args)
     {
         string rootPath = "C:\\Users\\User\\Documents\\Development\\C#\\fastgtfstomysql\\CNS_GTFS";
-        // some sort of argument parsing?
+        // TODO: some sort of argument parsing?
         // string[] file = File.ReadAllLines("C:\\Users\\User\\Documents\\Development\\C#\\fastgtfstomysql\\stop_times_trunc.txt");
         // string[] file = File.ReadAllLines("C:\\Users\\User\\Documents\\Development\\C#\\fastgtfstomysql\\stop_times.txt");
         // CSVParser parser = new CSVParser();
         // Stopwatch watch = new Stopwatch();
         // parser.ParseFile(file, 16);
-        GTFSParser gtfs = new GTFSParser(rootPath);
+        IDatabase db = new MySqlConnectionWrapper("Server=localhost;User ID=test;Password=pass;Database=test;Port=3306;Protocol=Socket");
+        GTFSParser gtfs = new GTFSParser(rootPath, db);
         gtfs.Parse();
+        Console.WriteLine("parsed");
+        gtfs.CreateTables();
 
     }
 

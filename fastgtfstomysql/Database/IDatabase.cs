@@ -2,10 +2,8 @@
 
 public interface IDatabase
 {
-    // success/fail
-    
-    bool InsertRow(string table, string[] values);
+    public bool InsertRow(string table, string[] values);
 
-    bool CreateTable(string tableName, Tuple<string, string>[] ColumnsAndDataTypes);
+    public bool CreateTable(string tableName, ValueTuple<string, string>[] ColumnsAndDataTypes);
 
 }
