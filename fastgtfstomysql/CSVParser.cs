@@ -1,4 +1,6 @@
-﻿namespace FastGTFSImport;
+﻿using System.Text;
+
+namespace FastGTFSImport;
 
 public class CSVParser
 {
@@ -7,14 +9,13 @@ public class CSVParser
     // as they're each writing to their own section
     private string[][] _parsedData;
     private string[] CSVFile;
-    // TODO: I don't think I need to have a tuple here anymore, I can just emit a jagged array
+    // TODO: I don't think I need to have a tuple here anymore, I can just emit a jagged array?
     public Tuple<string[], string[][]> ParseFile(string[] fileToParse, int numberOfThreads)
     {
         CSVFile = fileToParse;
         string[] columns = ParseLine(CSVFile[0]);
         // exclude "columns"
         _parsedData = new string[CSVFile.Length-1][];
-        Thread.CurrentThread.Name = "Main-CSV";
         int numberOfLinesPerThread = (int) MathF.Floor((CSVFile.Length - 1) / numberOfThreads);
         Thread[] threads = new Thread[numberOfThreads];
         _countdownEvent = new CountdownEvent(numberOfThreads);
@@ -69,6 +70,12 @@ public class CSVParser
     // this is my own shitty method, probably can and **should** be optimised/Replaced, Rider complains about all the allocations!
     private static string[] ParseLine(string line) 
     {
+        // TODO: attempt to fix broken thing
+        StringBuilder sb = new StringBuilder(line);
+        sb.Replace("\"", "\\\"");
+        line = sb.ToString();
+        
+        
         int indentationLevel = 0;
         List<int> indicesOfSeperators = new List<int>();
         char previouschar = '0';

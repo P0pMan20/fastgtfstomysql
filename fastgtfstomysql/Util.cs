@@ -1,4 +1,6 @@
-﻿namespace FastGTFSImport;
+﻿using System.Text;
+
+namespace FastGTFSImport;
 
 public static class Util
 {
@@ -20,5 +22,21 @@ public static class Util
                 Console.Write(collection[i][j]);
             }
         }
+    }
+
+    public static string FlattenToText(this string[] arr)
+    {
+        // assumption
+        StringBuilder sb = new StringBuilder(arr.Length+arr[0].Length*arr.Length);
+        foreach (string str in arr)
+        {
+            sb.Append("\"");
+            sb.Append(str);
+            sb.Append("\",");
+        }
+
+        sb.Remove(sb.Length - 1, 1);
+        return sb.ToString();
+
     }
 }

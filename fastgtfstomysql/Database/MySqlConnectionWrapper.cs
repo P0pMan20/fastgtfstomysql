@@ -6,13 +6,14 @@ namespace FastGTFSImport;
 public class MySqlConnectionWrapper : IDatabase, IDisposable
 {
     private MySqlConnection _connection;
+    private MySqlTransaction? _currentTransaction = null;
     public MySqlConnectionWrapper(string connectionString)
     {
         _connection = new MySqlConnection(connectionString);
         _connection.Open();
-        Console.WriteLine(_connection.State);
+        // Console.WriteLine(_connection.State);
     }
-    public bool CreateTable(Table table)
+    public void CreateTable(Table table)
     {
         var command = new MySqlCommand();
         command.Connection = _connection;
@@ -38,16 +39,49 @@ public class MySqlConnectionWrapper : IDatabase, IDisposable
             text.Insert(text.Length, ");");
         }
 
-        Console.WriteLine(text);
-
+        // Console.WriteLine(text);
+    
         command.CommandText = text.ToString();
+        if (_currentTransaction != null)
+        {
+            command.Transaction = _currentTransaction;
+        }
         command.ExecuteNonQuery();
-        return true;
     }
 
-    public bool InsertRow(string table, string[] values)
+    public void InsertRow(string table, string[] values)
     {
-        return false;
+        MySqlCommand command = new MySqlCommand($"INSERT INTO {table} VALUES ({values.FlattenToText()})",_connection);
+        if (_currentTransaction != null)
+        {
+            command.Transaction = _currentTransaction;
+        }
+        // Console.WriteLine(command.CommandText);
+        command.ExecuteNonQuery();
+        
+    }
+
+    public void BeginTransaction()
+    {
+        if (_currentTransaction == null)
+        {
+            _currentTransaction = _connection.BeginTransaction();
+        }
+    }
+
+    public void CommitTransaction()
+    {
+        // Console.WriteLine(_currentTransaction==null);
+        _currentTransaction.Commit();
+        // Console.WriteLine(_currentTransaction==null);
+        _currentTransaction.Dispose();
+        // Console.WriteLine(_currentTransaction==null);
+        _currentTransaction = null;
+
+    }
+    public void RollbackTransaction()
+    {
+        _currentTransaction.Rollback();
     }
 
     public void Dispose()

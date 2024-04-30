@@ -2,8 +2,10 @@
 
 public interface IDatabase
 {
-    public bool InsertRow(string table, string[] values);
+    public void BeginTransaction();
+    public void CommitTransaction();
+    public void InsertRow(string table, string[] values);
 
-    public bool CreateTable(Table table);
+    public void CreateTable(Table table);
 
 }

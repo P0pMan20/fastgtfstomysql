@@ -17,7 +17,7 @@ public partial class GTFSParser
         {
             Console.WriteLine("potentially broken file - missing agency_id, could be due to only having one transport agency");
             MultipleAgencyFlag = false;
-        }   
+        }
         // all fields are text so they can all be varchars
         // PK agency_id
         _tablesToCreate.Add(new Table("agency",columns.Select((x) => (

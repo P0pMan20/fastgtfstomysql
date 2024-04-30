@@ -7,12 +7,14 @@ public partial class GTFSParser
     private List<Table> _tablesToCreate = new List<Table>();
 
     private string _rootPath;
-    private IDatabase _database;
+    private IDatabaseFactory _databaseFactory;
+    private IDatabase _generalDatabase;
 
-    public GTFSParser(string rootPath, IDatabase db)
+    public GTFSParser(string rootPath, IDatabaseFactory databaseFactory)
     {
         _rootPath = rootPath;
-        _database = db;
+        _databaseFactory = databaseFactory;
+        _generalDatabase = databaseFactory.Produce();
     }
     // private int _numberOfTablesToCreate = 0;
     public void Parse()
@@ -63,16 +65,17 @@ public partial class GTFSParser
     {
         foreach (Table table in _tablesToCreate)
         {
-            _database.CreateTable(table);
+            _generalDatabase.CreateTable(table);
         }
     }
 
-    public void UpdateTables()
+    public void UpdateTables(int numberOfThreads)
     {
         foreach (Table table in _tablesToCreate)
         {
-            UpdateTable(table);
+            UpdateTable(table, numberOfThreads);
         }
+        // UpdateTable(_tablesToCreate[0], 16);
     }
 
     private bool CheckFileExists(string GTFSFile)
