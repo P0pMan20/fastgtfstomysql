@@ -12,19 +12,32 @@ public class MySqlConnectionWrapper : IDatabase, IDisposable
         _connection.Open();
         Console.WriteLine(_connection.State);
     }
-    // current issue cant work with multiple primary keys - need minor refactor
-    public bool CreateTable(string tableName, ValueTuple<string, string>[] ColumnsAndDataTypes)
+    public bool CreateTable(Table table)
     {
         var command = new MySqlCommand();
         command.Connection = _connection;
-        StringBuilder text = new StringBuilder($"CREATE TABLE {tableName} (");
-        foreach (var column in ColumnsAndDataTypes)
+        StringBuilder text = new StringBuilder($"CREATE TABLE {table.Name} (");
+        foreach (var column in table.ColumnNamesAndTheirCorrespondingDatatype)
         {
             text.Append($"{column.Item1} {column.Item2},");
         }
 
-        text.Remove(text.Length-1, 1);
-        text.Insert(text.Length, ");");
+        if (table.PrimaryKeys is not [])
+        {
+            text.Append("PRIMARY KEY (");
+            foreach (var primaryKey in table.PrimaryKeys)
+            {
+                text.Append($"{primaryKey},");
+            }
+            text.Remove(text.Length-1, 1);
+            text.Insert(text.Length, "));");
+        }
+        else
+        {
+            text.Remove(text.Length-1, 1);
+            text.Insert(text.Length, ");");
+        }
+
         Console.WriteLine(text);
 
         command.CommandText = text.ToString();

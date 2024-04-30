@@ -63,7 +63,7 @@ public partial class GTFSParser
     {
         foreach (Table table in _tablesToCreate)
         {
-            _database.CreateTable(table.Name, table.ColumnNamesAndTheirCorrespondingDatatype);
+            _database.CreateTable(table);
         }
     }
 

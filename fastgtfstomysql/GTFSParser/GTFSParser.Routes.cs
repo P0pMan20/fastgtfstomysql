@@ -28,14 +28,9 @@ public partial class GTFSParser
         // GTFS Enums don't really correspond to MySQL Enums
         _tablesToCreate.Add(new Table("routes", columns.Select((x) =>
         {
-
-            if (x == "route_id")
-            {
-                return (x, "VARCHAR(255) PRIMARY KEY");
-            }
             
             return (x, "VARCHAR(255)");
-        }).ToArray()));
+        }).ToArray(), new string[]{"route_id"}));
     }
     
 }

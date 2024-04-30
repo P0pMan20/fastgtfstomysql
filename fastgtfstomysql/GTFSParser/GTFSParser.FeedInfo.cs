@@ -16,7 +16,7 @@ public partial class GTFSParser
         _tablesToCreate.Add(new Table("feed_info", columns.Select((x) =>
         {
             return (x, "VARCHAR(255)");
-        }).ToArray()));
+        }).ToArray(), Array.Empty<string>()));
 
     }
 }

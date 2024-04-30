@@ -20,17 +20,13 @@ public partial class GTFSParser
             {
                 return (x, "DECIMAL(11,8)");
             }
-
-            if (x == "shape_id")
-            {
-                return (x, "VARCHAR(255) PRIMARY KEY");
-            }
+            
             if (x == "shape_pt_sequence")
             {
-                return (x, "INT PRIMARY KEY");
+                return (x, "INT");
             }
             
             return (x, "VARCHAR(255)");
-        }).ToArray()));
+        }).ToArray(), new string[]{"shape_pt_sequence","shape_id"}));
     }
 }

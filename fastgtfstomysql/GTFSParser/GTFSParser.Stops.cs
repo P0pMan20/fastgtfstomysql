@@ -22,14 +22,10 @@ public partial class GTFSParser
             {
                 return (x, "DECIMAL(11,8)");
             }
-
-            if (x == "stop_id")
-            {
-                return (x, "VARCHAR(255) PRIMARY KEY");
-            }
+            
             
             return (x, "VARCHAR(255)");
-        }).ToArray()));
+        }).ToArray(), new string[]{"stop_id"}));
 
 
     }

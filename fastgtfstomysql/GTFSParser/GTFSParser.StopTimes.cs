@@ -15,13 +15,9 @@ public partial class GTFSParser
         
         _tablesToCreate.Add(new Table("stop_times", columns.Select((x) =>
             {
-                if (x == "trip_id" || x == "stop_sequence")
-                {
-                    return (x, "VARCHAR(255) PRIMARY KEY");
-                }
-                
+
                 return (x, "VARCHAR(255)");
             }
-            ).ToArray()));
+            ).ToArray(), new string[]{"trip_id", "stop_sequence"}));
     }
 }

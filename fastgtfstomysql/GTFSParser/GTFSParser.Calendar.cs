@@ -22,12 +22,7 @@ public partial class GTFSParser
         // PK service_id
         _tablesToCreate.Add(new Table("calendar", columns.Select((x) =>
         {
-            if (x == "service_id")
-            {
-                return (x, "VARCHAR(255) PRIMARY KEY");
- 
-            }
             return (x, "VARCHAR(255)");
-        }).ToArray()));
+        }).ToArray(), new string[]{"service_id"}));
     }
 }

@@ -21,8 +21,8 @@ public partial class GTFSParser
         // all fields are text so they can all be varchars
         // PK agency_id
         _tablesToCreate.Add(new Table("agency",columns.Select((x) => (
-            x=="agency_id" ? (x, "VARCHAR(255) PRIMARY KEY") : (x, "VARCHAR(255)")
-            )).ToArray()));
+             (x, "VARCHAR(255)")
+            )).ToArray(), columns.Contains("agency_id") ? new string[] {"agency_id"} : Array.Empty<string>() ));
 
     }
 }
