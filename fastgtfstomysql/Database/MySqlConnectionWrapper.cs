@@ -60,6 +60,18 @@ public class MySqlConnectionWrapper : IDatabase, IDisposable
         command.ExecuteNonQuery();
         
     }
+    // // works like insert except it deletes existing rows if they match primary keys and adds the 'updated' row
+    // public void ReplaceRow(string table, string[] values)
+    // {
+    //     MySqlCommand command = new MySqlCommand($"REPLACE INTO {table} VALUES ({values.FlattenToText()})",_connection);
+    //     if (_currentTransaction != null)
+    //     {
+    //         command.Transaction = _currentTransaction;
+    //     }
+    //     // Console.WriteLine(command.CommandText);
+    //     command.ExecuteNonQuery();
+    //     
+    // }
 
     public void BeginTransaction()
     {

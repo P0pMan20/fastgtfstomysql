@@ -70,7 +70,9 @@ public class CSVParser
     // this is my own shitty method, probably can and **should** be optimised/Replaced, Rider complains about all the allocations!
     private static string[] ParseLine(string line) 
     {
+    
         // TODO: attempt to fix broken thing
+        // this escapes quotes so they can be properly inserted
         StringBuilder sb = new StringBuilder(line);
         sb.Replace("\"", "\\\"");
         line = sb.ToString();
