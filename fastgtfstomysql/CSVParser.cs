@@ -67,7 +67,7 @@ public class CSVParser
     {
         return ParseLine(File.ReadLines(filePath).First());
     }
-    // this is my own shitty method, probably can and **should** be optimised/Replaced, Rider complains about all the allocations!
+    // this is my own ***** method, probably can and **should** be optimised/Replaced, Rider complains about all the allocations!
     private static string[] ParseLine(string line) 
     {
     

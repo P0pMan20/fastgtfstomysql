@@ -1,0 +1,8 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+CNS_GTFS/
+SEQ_SCH_GTFS/
+stop_times.txt

@@ -26,8 +26,9 @@ public static class Util
 
     public static string FlattenToText(this string[] arr)
     {
-        // assumption
-        StringBuilder sb = new StringBuilder(arr.Length+arr[0].Length*arr.Length);
+        // this assumes that the length of the outputted string will never be longer than the
+        // length of the array plus the length of first string * length of array 
+        StringBuilder sb = new StringBuilder((arr.Length+arr[0].Length)*arr.Length);
         foreach (string str in arr)
         {
             sb.Append("\"");

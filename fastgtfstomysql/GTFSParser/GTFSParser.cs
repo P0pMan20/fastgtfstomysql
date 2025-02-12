@@ -19,7 +19,7 @@ public partial class GTFSParser
     // private int _numberOfTablesToCreate = 0;
     public void Parse()
     {
-        // TODO: check how optimise LINQ.Contains is - could creating a hashmap and checking that be faster?
+        // TODO: check how optimised LINQ.Contains is - could creating a hashmap and checking that be faster?
         // TODO: custom exceptions - some can be handled others are unrecoverable
         // TODO: colour types could be hex numbers instead of VARCHAR?
         // TODO: implement all conditionals within each file
