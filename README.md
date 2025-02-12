@@ -13,12 +13,12 @@ The Cairns and South East Queensland GTFS schedule [found here](https://translin
 #### My Implementation
 ~5 seconds
 
-![img.png](snips\img.png)
+![img.png](snips/img.png)
 
 ### Example implementation
 ~300 seconds
 
-![img_1.png](snips\img_1.png)
+![img_1.png](snips/img_1.png)
 
 ## Remaining Optimisations/Features
 - [ ] Resolve all TODOs
